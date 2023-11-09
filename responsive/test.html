@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="home-main-slider">  
+        <div class="list-main">
+            <div class="list-main-items">
+                <div class="items-1">
+                    <a href="https://anhhoabakery.vn/collections/gateaux-kem-tuoi">
+                        <img src="//theme.hstatic.net/1000313040/1000406925/14/ms_banner_img2.jpg?v=1952"
+                            class="img-responsive">
+                    </a>
+                </div>
+
+                <div class="items-2">
+                    <a href="https://anhhoabakery.vn/collections/teabreak-va-minicake">
+                        <img src="//theme.hstatic.net/1000313040/1000406925/14/ms_banner_img3.jpg?v=1952"
+                            class="img-responsive">
+                    </a>
+                </div>
+    
+                <div class="items-2">
+                    <a href="https://anhhoabakery.vn/collections/banh-my-banh-man">
+                        <img src="//theme.hstatic.net/1000313040/1000406925/14/ms_banner_img4.jpg?v=1952"
+                            class="img-responsive">
+                    </a>
+    
+                </div>
+    
+                <div class="items-2">
+                    <a href="https://anhhoabakery.vn/pages/he-thong-cua-hang">
+                        <img src="//theme.hstatic.net/1000313040/1000406925/14/ms_banner_img5.jpg?v=1952"
+                            class="img-responsive">
+                    </a>
+    
+                </div>
+            </div>
+        </div>
+        <!-- button-slider -->
+        <div class="list-button-slider">
+            <div class="button-slider">
+                <div class="button-1 button"></div>
+                <div class="button-2 button"></div>
+                <div class="button-3 button"></div>
+                <div class="button-4 button"></div>
+            </div>
+        </div>
+
+        <div class="btn-left" onclick="showL()"><</div>
+        <div class="btn-right" onclick="showR()">></div>
+    </div>
+</body>
+<script>
+    var list = document.getElementsByClassName("img-responsive");
+    var index = 0;
+    for (x of list) {
+        x.style.display = 'none';
+    }
+    list[index].style.display = 'block';
+    function showL() {
+        for (x of list) {
+            x.style.display = 'none';
+        }
+        if (index == 0) index = list.length - 1;
+        else index = index - 1;
+        list[index].style.display = 'block';
+        setTimeout(showL, 2000);
+    }
+
+    function showR() {
+        for (x of list) {
+            x.style.display = 'none';
+        }
+        if (index == list.length - 1) index = 0;
+        else index = index + 1;
+        list[index].style.display = 'block';
+    }
+</script>
+
+</html>

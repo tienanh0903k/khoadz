@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stype.css">
+    <script src="js/script.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <section>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Đồng hồ nam</a></li>
+                <li><a href="#">Đồng hỗ nữ</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li><a href="cart.html">Giở hàng</a></li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <div class="panel">
+            <div class="title">Sản phẩm bán chạy</div>
+            <div class="row">
+                <div class="col-3 col-s-6 box">
+                    <div class="box-content">
+                        <div class="box-giamgia">-29%</div>
+                        <img src="image/product-02.png">
+                        <div class="box-detail">
+                            <div class="box-name">Classico 01</div>
+                            <div style="color: red;">
+                                <span style="text-decoration:line-through ;">7000 đ</span>
+                                <span>5000 đ</span>
+                            </div>
+                            <button onclick="addToCart({id:'01',image:'image/product-02.png', price:300, name:'Classico 1'})">Thêm vào giở</button> 
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-3 col-s-6 box">
+                    <div class="box-content">
+                        <div class="box-giamgia">-29%</div>
+                        <img src="image/product-03.png">
+                        <div class="box-detail">
+                            <div class="box-name">Classico 02</div>
+                            <div style="color: red;">
+                                <span style="text-decoration:line-through ;">7000 đ</span>
+                                <span>5000 đ</span>
+                            </div>
+                            <button onclick="addToCart({id:'02',image:'image/product-03.png', price:300, name:'Classico 2'})">Thêm vào giở</button> 
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-3 col-s-6 box">
+                    <div class="box-content">
+                        <div class="box-giamgia">-29%</div>
+                        <img src="image/product-04.png">
+                        <div class="box-detail">
+                            <div class="box-name">Classico 03</div>
+                            <div style="color: red;">
+                                <span style="text-decoration:line-through ;">7000 đ</span>
+                                <span>5000 đ</span>
+                            </div>
+                            <button onclick="addToCart({id:'03',image:'image/product-04.png', price:300, name:'Classico 3'})">Thêm vào giở</button> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-s-6 box">
+                    <div class="box-content">
+                        <div class="box-giamgia">-29%</div>
+                        <img src="image/product-05.png">
+                        <div class="box-detail">
+                            <div class="box-name">Classico 04</div>
+                            <div style="color: red;">
+                                <span style="text-decoration:line-through ;">7000 đ</span>
+                                <span>5000 đ</span>
+                            </div>
+                            <button onclick="addToCart({id:'04',image:'image/product-05.png', price:300, name:'Classico 4'})">Thêm vào giở</button> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/script.js"></script>
+    <script>
+        function addToCart(item) {
+            debugger;          
+             item.quantity = 1;
+             console.log(item.quantity);
+             var list;
+             if (localStorage.getItem('cart') == null) {
+                 list = [item];
+             } else {
+                 list = JSON.parse(localStorage.getItem('cart')) || [];
+             let ok = true;
+             for (let x of list) {
+                 if (x.id == item.id) {
+                 x.quantity += 1;
+                 ok = false;
+                 break;
+                 }
+             }
+             if(ok){
+                 list.push(item); 
+             } 
+             }
+             localStorage.setItem('cart', JSON.stringify(list));
+             alert("Đã thêm giở hàng thành công");
+         }
+     </script>
+</body>
+
+</html>
